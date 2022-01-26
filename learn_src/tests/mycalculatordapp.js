@@ -79,13 +79,13 @@ describe('mycalculatordapp', () => {
     it('Exponentiation of numbers', async function() {
       const calculator = _calculator;
 
-      await program.rpc.power(new anchor.BN(10), new anchor.BN(3), {
+      await program.rpc.power(new anchor.BN(10), new anchor.BN(4), {
         accounts: {
           calculator: calculator.publicKey,
         },
       });
       const account = await program.account.calculator.fetch(calculator.publicKey);
-      assert.ok(account.result.eq(new anchor.BN(1000)));
+      assert.ok(account.result.eq(new anchor.BN(10000)));
       assert.ok(account.greeting === "Welcome to Solana");
     });
   });
